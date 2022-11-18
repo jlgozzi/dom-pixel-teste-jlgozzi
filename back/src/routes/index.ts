@@ -11,7 +11,7 @@ import verifyRequestData from "../middlewares/verifyRequestData.middleware";
 export const appRoutes = (app: Express) => {
   const routes = Router();
 
-  routes.get("/products", verifyApiKey, listProductsController);
+  routes.get("/products", listProductsController);
   routes.get("/products/:productId", listProductsByIdController);
   routes.post("/products", verifyRequestData, createProductController);
   routes.delete("/products/:productId", deleteProductController);
