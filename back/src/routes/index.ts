@@ -11,10 +11,15 @@ import verifyRequestData from "../middlewares/verifyRequestData.middleware";
 export const appRoutes = (app: Express) => {
   const routes = Router();
 
-  routes.get("/products", listProductsController);
-  routes.get("/products/:productId", listProductsByIdController);
-  routes.post("/products", verifyRequestData, createProductController);
-  routes.delete("/products/:productId", deleteProductController);
+  routes.get("/products", verifyApiKey, listProductsController);
+  routes.get("/products/:productId", verifyApiKey, listProductsByIdController);
+  routes.post(
+    "/products",
+    verifyApiKey,
+    verifyRequestData,
+    createProductController
+  );
+  routes.delete("/products/:productId", verifyApiKey, deleteProductController);
   routes.put(
     "/products/:productId",
     verifyRequestData,
