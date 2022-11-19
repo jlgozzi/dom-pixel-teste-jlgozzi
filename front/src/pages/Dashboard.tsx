@@ -1,4 +1,7 @@
+import CreateEditModal from "../components/CreateEditModal";
+import DeleteModal from "../components/DeleteModal";
 import Header from "../components/Header";
+import Menu from "../components/Menu";
 import ProductList from "../components/ProductList";
 
 const Dashboard = () => {
@@ -6,9 +9,12 @@ const Dashboard = () => {
     <>
       <Header />
       <main>
+        <Menu />
         <ProductList />
       </main>
-      <footer></footer>
+
+      <DeleteModal />
+      <CreateEditModal />
     </>
   );
 };
